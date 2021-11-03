@@ -1,6 +1,8 @@
-h1{
+#title{
     color: brown;
     font-size: 50px;
+    font-weight: bold;
+    display: inline;
 }
 
 legend{
@@ -11,4 +13,8 @@ legend{
 fieldset{
 
     width: 200px;
+}
+p{
+
+    display: block;
 }
