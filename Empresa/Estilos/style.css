@@ -1,0 +1,15 @@
+p{
+    color: brown;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+legend{
+
+    font-weight: bold;
+}
+
+fieldset{
+
+    width: 200px;
+}
