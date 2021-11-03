@@ -31,3 +31,18 @@ HTMLSelectElement.prototype.ordena=function(){
     }
 }
 
+HTMLSelectElement.prototype.creaJson=function(){
+    elements = this.children;
+    if(elements.length>0){
+
+        var vector = [];
+        for(let i=0;i<elements.length;i++){
+               
+            vector.push("{value: "+elements[i].value+", text: "+elements[i].innerHTML+"}");
+        }
+        var jsonText = JSON.stringify(vector);
+        return jsonText;
+    }
+     
+}
+

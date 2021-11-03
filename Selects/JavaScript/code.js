@@ -31,22 +31,16 @@ window.addEventListener("load", function(){
         selectLeft.value = "";
     }
 
-    selectLeft.onclick=function(){
-        elements = selectLeft.children;
-        if(elements.length>0){//Si hay elementos dentro del select (options) genera el JSON
-            var vector = [];
-            for(let i=0;i<elements.length;i++){
-               
-                vector.push("{value: "+elements[i].value+", text: "+elements[i].innerHTML+"}");
-            }
-            var jsonText = JSON.stringify(vector);
-            console.log(jsonText);
+    cabeceraCampo1.onclick=function(){
 
-        }
+        var jsonText = selectLeft.creaJson();
+        console.log(jsonText);
     }
 
-    selectRight.onclick=function(){
+    cabeceraCampo2.onclick=function(){
 
-        
+        var jsonText = selectRight.creaJson();
+        console.log(jsonText);
     }
+ 
 })
