@@ -18,11 +18,7 @@
         </tr>
         <tr>
             <td>
-                <select name="alumnos" id="alumnos" multiple="multiple" size="10">
-                    <option value="al1">Alumno1</option>
-                    <option value="al2">Alumno2</option>
-                    <option value="al3">Alumno3</option>
-                    <option value="al4">Alumno4</option>
+                <select name="alumnos" id="alumnos" multiple="multiple" size="10" ondrop="drop(event)" ondragover="allowDrop(event)">
                 </select>
 
             </td>
@@ -31,14 +27,22 @@
                 <input type="button" id="btnLeft" value="<="></input><br>
                 <input type="button" id="btnRight" value="=>"></input><br>
                 <input type="button" id="btnLeftAll" value="<<=="></input><br>
-                <input type="button" id="btnRightAll" value="==>>"></input>
+                <input type="button" id="btnRightAll" value="==>>"></input><br>
+                <input type="button" id="btnSave" value="Almacenar"></input>
             </td>
 
             <td>
-                <select name="seleccionados" id="seleccionados" multiple="multiple">
+                <select name="seleccionados" id="seleccionados" multiple="multiple" ondrop="drop(event)" ondragover="allowDrop(event)">
                     
                 </select>
             </td>
+        </tr>
+
+        <tr>
+            <td><input type="text" id="textInsert"></td>
+        </tr>
+        <tr>
+            <td><input type="button" id="btnInsert" value="Insertar"></input></td>
         </tr>
     </table>
        
