@@ -1,4 +1,4 @@
-#title{
+#cabecera{
     color: brown;
     font-size: 50px;
     font-weight: bold;
@@ -14,7 +14,9 @@ fieldset{
 
     width: 200px;
 }
-p{
 
-    display: block;
+input[type=radio]{
+
+    
 }
+
