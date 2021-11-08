@@ -1,5 +1,7 @@
 var desplazamiento=[]
 
+var celda;
+
 function creatabla(dimension){
     return function()
     {
@@ -8,6 +10,7 @@ function creatabla(dimension){
         var img = document.getElementsByTagName("img")[0];
         var width = img.clientWidth;
         const tamañoCelda=width/dimension;
+        celda=tamañoCelda;
         
         for(var fila=0;fila<dimension;fila++)
         {
@@ -97,15 +100,59 @@ function desordenaTabla(dimension){
     }
 }
 
-function moverTd(){
+function moverTd(tdPulsado, dimension, i){//tdPulsado,aux,casillaBlanca
+    
+    var td1 = document.createElement("td");
+    var td2 = document.createElement("td");
+    var tabla = document.getElementById("ready");
+    var tdBlanco = document.getElementsByClassName("vacio")[0];
+    var filaBlanco = tdBlanco.parentElement;
+    var filaPulsado = tdPulsado.parentElement;
+    td1 = tdPulsado;
+    td2 = tdBlanco;
 
+    tdPulsado.parentElement.removeChild(tdPulsado);
+    tdBlanco.parentElement.removeChild(tdBlanco);
 
+    filaBlanco.appendChild(td2);
+    filaPulsado.appendChild(td1);
 }
 
-function calculaMovimiento(){
+function calculaMovimiento(tdPulsado, dimension){
+    
+    var xPulsada, xVacia;
+    var yPulsada, yVacia;
+    var casillaBlanca = document.getElementsByClassName("vacio")[0];
 
-    var xClick;
-    var yClick;
+    //CONVERTIMOS XVACIA E YVACIA A NUMEROS
+
+    xVacia = casillaBlanca.style.backgroundPositionX;
+    xVacia=xVacia.substring(0,xVacia.length-2);
+    xVacia = parseInt(xVacia, 10);
+
+    yVacia = casillaBlanca.style.backgroundPositionY;
+    yVacia=yVacia.substring(0,yVacia.length-2);
+    yVacia = parseInt(yVacia, 10);
+
+    //CONVERTIMOS XPULSADA E YPULSADA A NUMEROS
+
+    xPulsada = tdPulsado.style.backgroundPositionX;
+    xPulsada=xPulsada.substring(0,xPulsada.length-2);
+    xPulsada = parseInt(xPulsada, 10);
+
+    yPulsada = tdPulsado.style.backgroundPositionY;
+    yPulsada=yPulsada.substring(0,yPulsada.length-2);
+    yPulsada = parseInt(yPulsada, 10);
+
+    //console.log("Posicion X - Vacia: "+xVacia+"\nPosicion Y - Vacia: "+yVacia+"\nPosicion X - Pulsada: "+xPulsada+"\nPosicion Y - Pulsada: "+yPulsada)
+    debugger
+    if (((xPulsada==xVacia-celda) || (xPulsada==xVacia+celda)) || ((yPulsada==yVacia-celda) || (yPulsada==yVacia+celda))){
+
+        return true;
+    }else{
+
+        return false;
+    }
 }
 
 function startgame(dimension){
@@ -114,11 +161,20 @@ function startgame(dimension){
         desordenaTabla(dimension)();
         document.getElementById("primeraImagen").style.display="none";
         document.getElementsByTagName("table")[0].style.display="none";
-        var tds = document.querySelectorAll("table#ready tr td")
+        var tds = document.querySelectorAll("table#ready tr td");
         for(let i=0;i<(dimension*dimension)-1;i++){
 
-            tds[i].onclick=console.log("aaaa");
+            tds[i].onclick=function(){
+                
+                if(calculaMovimiento(tds[i], dimension)){
+
+                    moverTd(tds[i],dimension,i);
+                }
+            }
+
+                
         }
+        
     }
 }
 window.addEventListener("load",function(){
@@ -127,3 +183,12 @@ window.addEventListener("load",function(){
     
     
 })
+
+/*
+
+if (((xPulsada==xVacia-1 || xPulsada=xVacia+1) || (yPulsada=yVacia-1 || yPulsada=yVacia+1))
+
+
+
+
+*/
