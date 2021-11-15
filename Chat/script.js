@@ -53,7 +53,6 @@ window.addEventListener("load",function(){
                     for(let i=0;i<respuesta.mensajes.length;i++){
     
                         var div=crearContenido(respuesta.mensajes[i],usuario.value);
-                        
                         if(contenedor.scrollHeight-contenedor.scrollTop<(contenedor.clientHeight+10)){
                             contenedor.appendChild(div);
                             contenedor.scrollTop=contenedor.scrollHeight;
@@ -69,6 +68,7 @@ window.addEventListener("load",function(){
     
         ajax.open("POST","peticiones.php");//pondiramos la ruta del archivo que se encarga de hacer algoque no me he enterao
         ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        console.log(ultimo);
         ajax.send("peticion=pedirMensajes&ultimo="+ultimo);
     
     }
@@ -94,6 +94,3 @@ window.addEventListener("load",function(){
     
     }
 });
-
-
-
