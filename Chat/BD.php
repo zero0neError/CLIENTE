@@ -45,12 +45,13 @@ Class BD{
         //____________BLOQUE2
     }
 
-    public static function insertaFilaMensaje($usuario,$mensaje){
+    public static function insertaFilaMensaje($usuario,$mensaje,$img){
 
-        $sql="INSERT INTO mensaje (Usuario, Mensaje, Hora) values (?,?,NOW())";
+        $sql="INSERT INTO mensaje (Usuario, Mensaje, Hora) values (?,?,NOW(),?)";
         $consulta = self::$conexion->prepare($sql);
         $consulta->bindParam(1,$usuario);
         $consulta->bindParam(2,$mensaje);
+        $consulta->bindParam(3,$img);
 
         if($consulta->execute()){
             return true;

@@ -26,6 +26,7 @@ if(isset($_POST["peticion"])){
                 $objMensaje->usuario=$registro['Usuario'];
                 $objMensaje->mensaje=$registro['Mensaje'];
                 $objMensaje->fecha=$registro['Hora'];
+                $objMensaje->archivo=$registro['Archivo'];
             
                 $object->mensajes[]=$objMensaje;
                 $ultimo=$registro['Id'];
@@ -42,8 +43,17 @@ if(isset($_POST["peticion"])){
             
             include_once "BD.php";
             if(BD::conectar()){
-                
-                if(BD::insertaFilaMensaje($_POST["txtUsuario"],$_POST["areaMensaje"])){
+                if($_POST['imageData']!=""){
+
+                    if(BD::insertaFilaMensaje($_POST["txtUsuario"],$_POST["areaMensaje"],$_POST['imageData'])){
+
+                        echo "OK!";
+                    }else{
+                        echo "ERROR!";
+                    }
+                    
+                }
+                if(BD::insertaFilaMensaje($_POST["txtUsuario"],$_POST["areaMensaje"],null)){
                     echo "OK!";
                 }else{
                     echo "ERROR!";
