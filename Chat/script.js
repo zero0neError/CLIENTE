@@ -50,6 +50,7 @@ window.addEventListener("load",function(){
         ajax.onreadystatechange=function(){
             
             if(ajax.readyState==4 && ajax.status==200){
+                console.log(ajax.responseText);
                 var respuesta = JSON.parse(ajax.responseText);
                 console.log(respuesta);
                 if(respuesta.mensajes.length>0){

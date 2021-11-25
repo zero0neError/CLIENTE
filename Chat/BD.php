@@ -46,12 +46,12 @@ Class BD{
     }
 
     public static function insertaFilaMensaje($usuario,$mensaje,$img){
-        $sql="INSERT INTO mensaje (Usuario, Mensaje, Hora) values (?,?,NOW(),?)";
+        echo "entra al metodo";
+        $sql="INSERT INTO mensaje (Usuario, Mensaje, Hora) values (:usuario,:mensaje,'NOW()',:img)";
         $consulta = self::$conexion->prepare($sql);
-        $consulta->bindParam(1,$usuario);
-        $consulta->bindParam(2,$mensaje);
-        $consulta->bindParam(3,$img);
-
+        $consulta->bindParam(":usuario",$usuario);
+        $consulta->bindParam(":mensaje",$mensaje);
+        $consulta->bindParam(":img",$img);
         if($consulta->execute()){
             return true;
         }else{

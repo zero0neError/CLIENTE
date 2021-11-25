@@ -44,7 +44,7 @@ if(isset($_POST["peticion"])){
             include_once "BD.php";
             if(BD::conectar()){
                 if($_POST['imageData']!=""){
-
+                    echo "entra a escribir mensajes";
                     if(BD::insertaFilaMensaje($_POST["txtUsuario"],$_POST["areaMensaje"],$_POST['imageData'])){
 
                         echo "OK!";
@@ -53,7 +53,8 @@ if(isset($_POST["peticion"])){
                     }
                     
                 }else{
-                    if(BD::insertaFilaMensaje($_POST["txtUsuario"],$_POST["areaMensaje"],null)){
+                    
+                    if(BD::insertaFilaMensaje($_POST["txtUsuario"],$_POST["areaMensaje"],"null")){
                         echo "OK!";
                     }else{
                         echo "ERROR!";
