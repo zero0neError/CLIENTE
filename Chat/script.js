@@ -26,27 +26,19 @@ window.addEventListener("load",function(){
             localStorage.setItem("nombreUsuario",usuario.value);
             
             if(archivo.files.length>0 && (/^image\//.test(archivo.files[0].type))){
-                console.log("entra")
                 //enviamos a la base de datos el mensaje junto con la imagen en el caso en el que hubiera
                 var reader = new FileReader();
                 reader.readAsDataURL(archivo.files[0]);
                 reader.onload=function(ev){
                     imageData = reader.result;
-                    console.log(imageData);
+                    ajaxEnviarMensaje(imageData,usuario,mensaje);
                 }
                 
+            }else{
+
+                ajaxEnviarMensaje("",usuario,mensaje);
             }
                 
-            const ajax = new XMLHttpRequest();//CREAMOS EL OBJETO AJAX
-            ajax.onreadystatechange=function(){
-                if(ajax.readyState==4 && ajax.status==200){//SI EL SERVIDOR RESPONDE BIEN...
-                    var respuesta = ajax.responseText;//CAPTURAMOS LA RESPUESTA QUE ES CAPTURADA POR EL AJAX
-                }
-            }
-            console.log(imageData);
-            ajax.open("POST","peticiones.php");
-            ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");//ESPECIFICAMOS QUE ENVIAMOS DESDE UN FORMULARIO
-            ajax.send("peticion=escribirMensajes&enviar=&txtUsuario=" + usuario.value + "&" + "areaMensaje=" + mensaje.value+"&imageData="+imageData);
         }
     }
 
@@ -112,3 +104,18 @@ window.addEventListener("load",function(){
     
     }
 });
+
+function ajaxEnviarMensaje(imageData,usuario,mensaje){
+
+    const ajax = new XMLHttpRequest();//CREAMOS EL OBJETO AJAX
+            ajax.onreadystatechange=function(){
+                if(ajax.readyState==4 && ajax.status==200){//SI EL SERVIDOR RESPONDE BIEN...
+                    var respuesta = ajax.responseText;//CAPTURAMOS LA RESPUESTA QUE ES CAPTURADA POR EL AJAX
+                }
+            }
+            
+    ajax.open("POST","peticiones.php");
+    ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");//ESPECIFICAMOS QUE ENVIAMOS DESDE UN FORMULARIO
+    console.log(imageData);
+    ajax.send("peticion=escribirMensajes&enviar=&txtUsuario=" + usuario.value + "&" + "areaMensaje=" + mensaje.value+"&imageData="+imageData);
+}

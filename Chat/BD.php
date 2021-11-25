@@ -46,7 +46,6 @@ Class BD{
     }
 
     public static function insertaFilaMensaje($usuario,$mensaje,$img){
-
         $sql="INSERT INTO mensaje (Usuario, Mensaje, Hora) values (?,?,NOW(),?)";
         $consulta = self::$conexion->prepare($sql);
         $consulta->bindParam(1,$usuario);

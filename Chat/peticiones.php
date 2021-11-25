@@ -52,12 +52,14 @@ if(isset($_POST["peticion"])){
                         echo "ERROR!";
                     }
                     
-                }
-                if(BD::insertaFilaMensaje($_POST["txtUsuario"],$_POST["areaMensaje"],null)){
-                    echo "OK!";
                 }else{
-                    echo "ERROR!";
+                    if(BD::insertaFilaMensaje($_POST["txtUsuario"],$_POST["areaMensaje"],null)){
+                        echo "OK!";
+                    }else{
+                        echo "ERROR!";
+                    }
                 }
+                
                 
             }
         }
