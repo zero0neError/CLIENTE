@@ -80,6 +80,19 @@ $(document).ready(function(){
         myWindow=window.open("","New Window", "fullscreen=yes");//no va la pantalla completa
         //no he logrado encontrar como hacerla transparente
         //y no se acceder a la ventana abierta con jquery, he intentado $(myWindow), y tambien myWindow.$(document.body) este ultimo no tiene mucho sentido pero por probar...
+        $(myWindow.document).ready(function(){
+
+            myWindow.document.write("<div id='cerrar'>X</div>");
+            $("#cerrar").click(function(){
+
+                $(this).close();
+
+            });
+
+        });
+        
+        
+        
     });
 
 });
