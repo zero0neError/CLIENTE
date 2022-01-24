@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Estilos/style.css">
+    <script src="JavaScript/code.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="cabecera">FORMULARIO EMPRESA-PARTICULAR</div>
+    <form>
+        <fieldset>
+            <legend>Seleccione un campo</legend>
+            <label><input type="radio" name="same" value="Empresa" id="rdbtnEmpresa">Empresa</label>
+            <label><input type="radio" name="same" value="Particular" id="rdbtnParticular">Particular</label>
+        </fieldset>
+        <p><label>DNI: </label><input type="text" placeholder="Introduce el dni"></p>
+        <p><label>Nombre: </label><input type="text" placeholder="Introduce tu nombre"></p>
+        <p><label>Apellidos: </label><input type="text" placeholder="Introduce tus apellidos"></p>
+        <p><label>Direccion: </label><input type="text" placeholder="C/Fuente del Alamillo nº7..."></p>
+        <p><label>Provincia: </label><select name="provincias" id="provincias"></select></p><!--Aqui sacaremos de un .csv todas las provincias de españa y a raiz de la provincia volcaremos todos los municipios de dicha provincia-->
+        <p><label>Municipio: </label><select name="municipios" id="municipios"></select></p>
+        <p><label>Codigo postal: </label><input type="text" placeholder="23006, 22456..."></p>
+        <p><label>Fecha de nacimiento: </label><input type="text" placeholder="15/12/2001"></p>
+        <p><label>Fecha del carnet: </label><input type="text" placeholder="11/23"></p>
+        <p><label>Telefono: </label><input type="text" placeholder="+34 601300652"></p>
+        <p><label>Matricula: </label><input type="text" placeholder="8100BMS"></p>
+        <p><label>Marca: </label><input type="text" placeholder="Hyundai"></p>
+        <p><label>Modelo: </label><input type="text" placeholder="Tucson"></p>
+        <p><label>Año de fabricacion: </label><input type="text" placeholder="2021"></p>
+        <p><label>Cilindrada: </label><input type="text" placeholder="2000cc"></p>
+        <p>
+            <label>Puertas: </label>
+            <select name="puertas" id="puertas">
+                <option value="p3">3</option>
+                <option value="p5">5</option>
+                <option value="p7">7</option>
+            </select>
+        </p>        
+        
+    </form>
+    <button>Enviar datos</button>
+</body>
+</html>
