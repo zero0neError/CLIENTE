@@ -45,7 +45,10 @@ $(document).ready(function(){
     /*EJERCICIO 5*/
     $("#5").click(function(){
 
-        $("li:even").css({"text-transform":"capitalize"});
+        $("ol li:nth-child(odd), ul li:nth-child(odd)").each(function(ind,valor){
+
+            $(valor).text($(valor).text().toUpperCase())
+        })
     });
    
 
