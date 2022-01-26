@@ -10,6 +10,7 @@ $(function(){
         ev.preventDefault();
         var numeroProducto=$(this).attr("id").split("_")[1];//separamos el detalle del producto por la barra baja y cogemos la posicion 1 (el numero)
         //alert("Has pulsado sobre el detalle: "+numeroProducto);
+        guardarProductos(divEnMemoria)
         detalleProducto(numeroProducto);
          
     });
@@ -68,6 +69,7 @@ $(function(){
 
     function guardarProductos(divEnMemoria){
 
+        $(".titulo_zona").empty();
         $(".cuerpo").children().appendTo(divEnMemoria);
     }
 
@@ -83,13 +85,28 @@ $(function(){
 
     function detalleProducto(id){
 
+        var plantilla=$("<div>").appendTo($(".cuerpo")).load("plantillas/detalle.html",function(){
 
-        $.getJSON("http://localhost/CLIENTE/SEGUNDO%20TRIMESTRE/web20/ajax.php?accion=detalle&id="+id,function(data){
 
+            $.getJSON("http://localhost/CLIENTE/SEGUNDO%20TRIMESTRE/web20/ajax.php?accion=detalle&id="+id,function(data){
 
-            console.log(data);
-            
-        })
+            $(".titulo_zona").text(data.nombre);//nombre del producto
+
+            plantilla.find(".precio").text(data.precio+" €"); //precio
+
+            plantilla.find(".info p").text(data.descripcion);
+
+            //imagen
+            (id.length<2)? imgName="0"+id+"coc.jpg":imgName=id+"coc.jpg";
+
+            plantilla.find("img").attr("src","index_files/"+imgName);
+            });
+
+        });
+
+        
+        
+        
 
 
         
