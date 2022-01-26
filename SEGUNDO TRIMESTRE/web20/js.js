@@ -60,6 +60,10 @@ $(function(){
 
     }});
 
+    
+    
+    
+    
     //#################################################################################################################################### EJERCICIO 3
 
     var divEnMemoria=$("<div>").attr("id","divMemoria");
@@ -85,24 +89,24 @@ $(function(){
 
     function detalleProducto(id){
 
-        var plantilla=$("<div>").appendTo($(".cuerpo")).load("plantillas/detalle.html",function(){
-
+        var plantilla=$("<div>").load("plantillas/detalle.html",function(){
 
             $.getJSON("http://localhost/CLIENTE/SEGUNDO%20TRIMESTRE/web20/ajax.php?accion=detalle&id="+id,function(data){
 
-            $(".titulo_zona").text(data.nombre);//nombre del producto
+                $(".titulo_zona").text(data.nombre);//nombre del producto
 
-            plantilla.find(".precio").text(data.precio+" €"); //precio
+                plantilla.find(".precio").text(data.precio+" €"); //precio
 
-            plantilla.find(".info p").text(data.descripcion);
+                plantilla.find(".info p").text(data.descripcion);//descripcion
+                
+                (id.length<2)? imgName="0"+id+"coc.jpg":imgName=id+"coc.jpg";//imagen
 
-            //imagen
-            (id.length<2)? imgName="0"+id+"coc.jpg":imgName=id+"coc.jpg";
 
-            plantilla.find("img").attr("src","index_files/"+imgName);
+                plantilla.find("img").attr("src","index_files/"+imgName);
+
             });
 
-        });
+        }).appendTo($(".cuerpo"));
 
         
         
