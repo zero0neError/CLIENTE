@@ -22,9 +22,21 @@ $(function(){
             }
 
             //hacer el click
-            $("#select option").on("click", function(){
+            $("#select:last-child option").on("click", function(){
 
                 //abrirModal();
+                $("<div>").attr("id","pais").text(function(){
+                    var nombreCompletoPais = $("#select").val();
+                    
+                    $.getJSON("https://restcountries.com/v3.1/name/"+nombreCompletoPais+"?fullText=true",function(data){
+
+                        $.each(data,function(ind,valor){
+            
+                            bandera=valor.translations.spa.official;
+                            arrayPaises.push(nombres);
+                        });
+                    })
+                }).appendTo($("body"));
                 
             });
         });
