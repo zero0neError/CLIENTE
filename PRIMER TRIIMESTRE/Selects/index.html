@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Estilos/style.css">
+    <script src="JavaScript/select.js"></script>
+    <script src="JavaScript/code.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>CAMPO 1</td>
+            <td>OPCIONES</td>
+            <td>CAMPO 2</td>
+        </tr>
+        <tr>
+            <td>
+                <select name="alumnos" id="alumnos" multiple="multiple" size="10" ondrop="drop(event)" ondragover="allowDrop(event)">
+                </select>
+
+            </td>
+
+            <td>
+                <input type="button" id="btnLeft" value="<="></input><br>
+                <input type="button" id="btnRight" value="=>"></input><br>
+                <input type="button" id="btnLeftAll" value="<<=="></input><br>
+                <input type="button" id="btnRightAll" value="==>>"></input><br>
+                <input type="button" id="btnSave" value="Almacenar"></input>
+            </td>
+
+            <td>
+                <select name="seleccionados" id="seleccionados" multiple="multiple" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td><input type="text" id="textInsert"></td>
+        </tr>
+        <tr>
+            <td><input type="button" id="btnInsert" value="Insertar"></input></td>
+        </tr>
+    </table>
+       
+    
+</body>
+</html>

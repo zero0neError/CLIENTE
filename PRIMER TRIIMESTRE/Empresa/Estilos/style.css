@@ -1,0 +1,22 @@
+#cabecera{
+    color: brown;
+    font-size: 50px;
+    font-weight: bold;
+    display: inline;
+}
+
+legend{
+
+    font-weight: bold;
+}
+
+fieldset{
+
+    width: 200px;
+}
+
+input[type=radio]{
+
+    
+}
+

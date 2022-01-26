@@ -1,0 +1,20 @@
+.imagen{
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    background-image: url("../imagen/perro.jpg");
+}
+
+.zoom {
+    transition: transform .2s; 
+}
+ 
+.zoom:hover {
+    transform: scale(1.04); 
+}
+
+.zoom:focus{
+
+    filter: alpha(opacity=50);
+}

@@ -1,0 +1,38 @@
+
+input{
+
+    border-radius: 6px;
+
+}
+
+button{
+
+    border-radius: 8px;
+}
+
+.borrar{
+
+    background-position-x: -104px;
+    background-position-y: -172px;
+}
+
+.editar{
+
+    background-position-x: -272px;
+    background-position-y: -172px;
+}
+
+.btnImg{
+
+    width: 32px;
+    height: 32px;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    background-image: url("img.png");
+}
+table{
+
+    background-color: cadetblue;
+}
