@@ -101,7 +101,6 @@ $(function(){
                 
                 (id.length<2)? imgName="0"+id+"coc.jpg":imgName=id+"coc.jpg";//imagen
 
-
                 plantilla.find("img").attr("src","index_files/"+imgName);
 
             });
